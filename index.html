@@ -8,16 +8,16 @@
 
 <style>
 :root {
-  --bg1: #160f24;
-  --bg2: #2b1740;
-  --card: rgba(255, 255, 255, 0.08);
-  --card2: rgba(255, 255, 255, 0.06);
-  --border: rgba(255, 255, 255, 0.18);
-  --text: #f7f1ff;
-  --muted: #d8c9ee;
-  --accent: #d8a7ff;
-  --accent2: #7dd3fc;
-  --dark: #1b1028;
+  --bg1: #0f1f1a;
+  --bg2: #1f3a2f;
+  --card: rgba(255, 255, 255, 0.09);
+  --card2: rgba(255, 255, 255, 0.07);
+  --border: rgba(110, 231, 183, 0.26);
+  --text: #ecfff5;
+  --muted: #b7e4d1;
+  --accent: #6ee7b7;
+  --accent2: #34d399;
+  --dark: #073b2b;
 }
 
 * {
@@ -29,8 +29,9 @@ body {
   font-family: "Segoe UI", "Hiragino Sans", "Yu Gothic", sans-serif;
   color: var(--text);
   background:
-    radial-gradient(circle at 15% 10%, rgba(216,167,255,0.35), transparent 28%),
-    radial-gradient(circle at 85% 20%, rgba(125,211,252,0.25), transparent 30%),
+    radial-gradient(circle at 20% 20%, rgba(110,231,183,0.35), transparent 30%),
+    radial-gradient(circle at 80% 10%, rgba(52,211,153,0.25), transparent 30%),
+    radial-gradient(circle at 50% 90%, rgba(187,247,208,0.14), transparent 35%),
     linear-gradient(135deg, var(--bg1), var(--bg2));
   min-height: 100vh;
 }
@@ -40,8 +41,8 @@ body::before {
   position: fixed;
   inset: 0;
   background-image:
-    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+    linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
   background-size: 32px 32px;
   pointer-events: none;
 }
@@ -63,9 +64,9 @@ body::before {
   height: 148px;
   border-radius: 50%;
   object-fit: cover;
-  border: 4px solid rgba(255,255,255,0.75);
+  border: 4px solid rgba(255,255,255,0.9);
   box-shadow:
-    0 0 0 8px rgba(216,167,255,0.18),
+    0 0 0 8px rgba(110,231,183,0.25),
     0 18px 50px rgba(0,0,0,0.35);
   background: rgba(255,255,255,0.15);
 }
@@ -74,7 +75,7 @@ h1 {
   font-size: clamp(2rem, 5vw, 3.2rem);
   margin: 22px 0 8px;
   letter-spacing: 0.04em;
-  text-shadow: 0 0 24px rgba(216,167,255,0.45);
+  text-shadow: 0 0 22px rgba(110,231,183,0.55);
 }
 
 .catch {
@@ -94,11 +95,11 @@ h1 {
 .card {
   background: var(--card);
   border: 1px solid var(--border);
-  border-radius: 24px;
+  border-radius: 26px;
   padding: 24px;
   margin-bottom: 22px;
   backdrop-filter: blur(14px);
-  box-shadow: 0 16px 40px rgba(0,0,0,0.25);
+  box-shadow: 0 14px 34px rgba(0,0,0,0.25);
 }
 
 .card h2 {
@@ -112,7 +113,7 @@ p {
 }
 
 a {
-  color: var(--accent2);
+  color: var(--accent);
   text-decoration: none;
 }
 
@@ -128,25 +129,24 @@ a:hover {
   background: linear-gradient(135deg, var(--accent), var(--accent2));
   color: var(--dark);
   font-weight: bold;
-  box-shadow: 0 8px 22px rgba(125,211,252,0.25);
+  box-shadow: 0 8px 22px rgba(52,211,153,0.32);
   transition: 0.2s;
 }
 
 .btn:hover {
   text-decoration: none;
-  transform: translateY(-1px);
+  transform: translateY(-2px) scale(1.03);
 }
 
 .btn.sub {
   background: rgba(255,255,255,0.09);
   color: var(--text);
-  border: 1px solid rgba(255,255,255,0.18);
+  border: 1px solid rgba(110,231,183,0.3);
 }
 
-/* 開閉プロフィール */
 details {
   margin-bottom: 12px;
-  border-radius: 16px;
+  border-radius: 18px;
   overflow: hidden;
 }
 
@@ -154,9 +154,9 @@ summary {
   list-style: none;
   cursor: pointer;
   padding: 15px 46px 15px 18px;
-  border-radius: 16px;
-  background: linear-gradient(135deg, #d8a7ff22, #7dd3fc22);
-  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 18px;
+  background: linear-gradient(135deg, #6ee7b722, #34d39922);
+  border: 1px solid rgba(110,231,183,0.32);
   font-size: 1.12rem;
   font-weight: bold;
   line-height: 1.4;
@@ -182,33 +182,49 @@ details[open] summary::after {
 }
 
 summary:hover {
-  background: linear-gradient(135deg, #d8a7ff33, #7dd3fc33);
-  box-shadow: 0 0 16px rgba(216,167,255,0.22);
+  background: linear-gradient(135deg, #6ee7b733, #34d39933);
+  box-shadow: 0 0 16px rgba(110,231,183,0.32);
 }
 
 details p {
   padding: 16px 18px;
   margin: 0;
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.045);
+  border: 1px solid rgba(110,231,183,0.18);
   border-top: none;
-  border-radius: 0 0 16px 16px;
+  border-radius: 0 0 18px 18px;
 }
 
-/* ソフト */
 .software {
   padding: 18px;
   margin-top: 14px;
-  border-radius: 18px;
+  border-radius: 20px;
   background: var(--card2);
-  border: 1px solid rgba(255,255,255,0.12);
+  border: 1px solid rgba(110,231,183,0.22);
 }
 
 .software b {
   font-size: 1.15rem;
 }
 
-/* 動画 */
+.twitch-wrap {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(110,231,183,0.22);
+  background: rgba(255,255,255,0.05);
+}
+
+.twitch-wrap iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
 .video-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -217,11 +233,11 @@ details p {
 }
 
 .video-card {
-  background: rgba(255,255,255,0.06);
-  border-radius: 16px;
+  background: rgba(255,255,255,0.07);
+  border-radius: 18px;
   overflow: hidden;
   transition: 0.2s;
-  border: 1px solid rgba(255,255,255,0.1);
+  border: 1px solid rgba(110,231,183,0.18);
 }
 
 .video-card img {
@@ -239,10 +255,9 @@ details p {
 
 .video-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  box-shadow: 0 10px 25px rgba(52,211,153,0.28);
 }
 
-/* リンク */
 .links {
   display: flex;
   flex-wrap: wrap;
@@ -254,7 +269,7 @@ details p {
   padding: 10px 16px;
   border-radius: 999px;
   background: rgba(255,255,255,0.09);
-  border: 1px solid rgba(255,255,255,0.18);
+  border: 1px solid rgba(110,231,183,0.25);
   font-weight: bold;
 }
 
@@ -273,7 +288,7 @@ details p {
 
   .card {
     padding: 18px;
-    border-radius: 18px;
+    border-radius: 20px;
   }
 
   .profile-icon {
@@ -306,6 +321,19 @@ details p {
     <a class="btn sub" href="https://www.twitch.tv/iizuna_inja">Twitchを見る</a>
   </div>
 </header>
+
+<div class="card">
+<h2>🔴 Live / Twitch</h2>
+<div class="twitch-wrap">
+  <iframe
+    src="https://player.twitch.tv/?channel=iizuna_inja&parent=iizunaojou.github.io"
+    allowfullscreen>
+  </iframe>
+</div>
+<p>
+  配信中ならここで見れます。オフラインでも、よかったらTwitchフォローしてね。
+</p>
+</div>
 
 <div class="card">
 <h2>プロフィール</h2>
