@@ -219,6 +219,49 @@ summary {
 summary:hover {
   background: rgba(255,255,255,0.12);
 }  
+  details {
+  margin-bottom: 12px;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+summary {
+  list-style: none; /* デフォ矢印消す */
+  cursor: pointer;
+  padding: 14px 18px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #d8a7ff22, #7dd3fc22);
+  border: 1px solid rgba(255,255,255,0.15);
+  font-weight: bold;
+  position: relative;
+}
+
+/* Chrome系の矢印も消す */
+summary::-webkit-details-marker {
+  display: none;
+}
+
+/* 右側に＋マーク */
+summary::after {
+  content: "+";
+  position: absolute;
+  right: 16px;
+  font-size: 18px;
+  opacity: 0.8;
+}
+
+/* 開いたときは×にする */
+details[open] summary::after {
+  content: "−";
+}
+
+/* 中身 */
+details p {
+  padding: 14px 18px;
+  margin: 0;
+  background: rgba(255,255,255,0.04);
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
 </style>
 </head>
 
