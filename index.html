@@ -11,11 +11,13 @@
   --bg1: #160f24;
   --bg2: #2b1740;
   --card: rgba(255, 255, 255, 0.08);
+  --card2: rgba(255, 255, 255, 0.06);
   --border: rgba(255, 255, 255, 0.18);
   --text: #f7f1ff;
   --muted: #d8c9ee;
   --accent: #d8a7ff;
   --accent2: #7dd3fc;
+  --dark: #1b1028;
 }
 
 * {
@@ -78,6 +80,15 @@ h1 {
 .catch {
   color: var(--muted);
   font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+.hero-actions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 22px;
 }
 
 .card {
@@ -100,18 +111,6 @@ p {
   line-height: 1.9;
 }
 
-.software {
-  padding: 18px;
-  margin-top: 14px;
-  border-radius: 18px;
-  background: rgba(255,255,255,0.07);
-  border: 1px solid rgba(255,255,255,0.12);
-}
-
-.software b {
-  font-size: 1.15rem;
-}
-
 a {
   color: var(--accent2);
   text-decoration: none;
@@ -126,10 +125,11 @@ a:hover {
   margin-top: 12px;
   padding: 10px 18px;
   border-radius: 999px;
-  background: linear-gradient(135deg, #d8a7ff, #7dd3fc);
-  color: #1b1028;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  color: var(--dark);
   font-weight: bold;
   box-shadow: 0 8px 22px rgba(125,211,252,0.25);
+  transition: 0.2s;
 }
 
 .btn:hover {
@@ -137,6 +137,112 @@ a:hover {
   transform: translateY(-1px);
 }
 
+.btn.sub {
+  background: rgba(255,255,255,0.09);
+  color: var(--text);
+  border: 1px solid rgba(255,255,255,0.18);
+}
+
+/* 開閉プロフィール */
+details {
+  margin-bottom: 12px;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 15px 46px 15px 18px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #d8a7ff22, #7dd3fc22);
+  border: 1px solid rgba(255,255,255,0.15);
+  font-size: 1.12rem;
+  font-weight: bold;
+  line-height: 1.4;
+  position: relative;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+summary::after {
+  content: "+";
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.25rem;
+  opacity: 0.85;
+}
+
+details[open] summary::after {
+  content: "−";
+}
+
+summary:hover {
+  background: linear-gradient(135deg, #d8a7ff33, #7dd3fc33);
+  box-shadow: 0 0 16px rgba(216,167,255,0.22);
+}
+
+details p {
+  padding: 16px 18px;
+  margin: 0;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-top: none;
+  border-radius: 0 0 16px 16px;
+}
+
+/* ソフト */
+.software {
+  padding: 18px;
+  margin-top: 14px;
+  border-radius: 18px;
+  background: var(--card2);
+  border: 1px solid rgba(255,255,255,0.12);
+}
+
+.software b {
+  font-size: 1.15rem;
+}
+
+/* 動画 */
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.video-card {
+  background: rgba(255,255,255,0.06);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: 0.2s;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.video-card img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+}
+
+.video-card p {
+  padding: 12px;
+  margin: 0;
+  font-size: 0.95em;
+}
+
+.video-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+/* リンク */
 .links {
   display: flex;
   flex-wrap: wrap;
@@ -149,6 +255,7 @@ a:hover {
   border-radius: 999px;
   background: rgba(255,255,255,0.09);
   border: 1px solid rgba(255,255,255,0.18);
+  font-weight: bold;
 }
 
 .footer {
@@ -173,94 +280,10 @@ a:hover {
     width: 124px;
     height: 124px;
   }
-}
 
-.video-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 16px;
-  margin-top: 16px;
-}
-
-.video-card {
-  background: rgba(255,255,255,0.06);
-  border-radius: 16px;
-  overflow: hidden;
-  transition: 0.2s;
-}
-
-.video-card img {
-  width: 100%;
-  display: block;
-}
-
-.video-card p {
-  padding: 10px;
-  margin: 0;
-  font-size: 0.95em;
-}
-
-.video-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-}
-details {
-  margin-bottom: 12px;
-}
-
-summary {
-  cursor: pointer;
-  font-weight: bold;
-  padding: 10px;
-  border-radius: 12px;
-  background: rgba(255,255,255,0.06);
-}
-
-summary:hover {
-  background: rgba(255,255,255,0.12);
-}  
-  details {
-  margin-bottom: 12px;
-  border-radius: 16px;
-  overflow: hidden;
-}
-
-summary {
-  list-style: none; /* デフォ矢印消す */
-  cursor: pointer;
-  padding: 14px 18px;
-  border-radius: 16px;
-  background: linear-gradient(135deg, #d8a7ff22, #7dd3fc22);
-  border: 1px solid rgba(255,255,255,0.15);
-  font-weight: bold;
-  position: relative;
-}
-
-/* Chrome系の矢印も消す */
-summary::-webkit-details-marker {
-  display: none;
-}
-
-/* 右側に＋マーク */
-summary::after {
-  content: "+";
-  position: absolute;
-  right: 16px;
-  font-size: 18px;
-  opacity: 0.8;
-}
-
-/* 開いたときは×にする */
-details[open] summary::after {
-  content: "−";
-}
-
-/* 中身 */
-details p {
-  padding: 14px 18px;
-  margin: 0;
-  background: rgba(255,255,255,0.04);
-  border-top: 1px solid rgba(255,255,255,0.08);
+  .hero {
+    padding-top: 24px;
+  }
 }
 </style>
 </head>
@@ -272,78 +295,94 @@ details p {
 <header class="hero">
   <img class="profile-icon" src="icon.png" alt="いいずなお嬢様のプロフィールアイコン">
   <h1>いいずなお嬢様の研究所</h1>
-  <div class="catch">OSS / Tools / VTuber / 配信まわりの便利なもの</div>
+  <div class="catch">
+    OSS / Tools / VTuber / 配信まわりの便利なもの<br>
+    パソコン大好きお嬢が、ソフト制作と動画投稿をやっています。
+  </div>
+
+  <div class="hero-actions">
+    <a class="btn" href="https://t.co/96ntACMx0K">YouTubeを見る</a>
+    <a class="btn sub" href="https://x.com/iizuma_inja">Xをフォロー</a>
+    <a class="btn sub" href="https://www.twitch.tv/iizuna_inja">Twitchを見る</a>
+  </div>
 </header>
 
 <div class="card">
+<h2>プロフィール</h2>
 
 <details>
-  <summary><h2>開発者としてのプロフィール</h2></summary>
+  <summary>開発者としてのプロフィール</summary>
   <p>
-OSSが大好きなので、なるべくGPL-3.0系ライセンスでソフトを作って貢献していきたいと思います。
+    OSSが大好きで、配信や動画制作に役立つツールを中心に作っています。<br>
+    なるべくGPL-3.0系ライセンスで公開しながら、少しずつ貢献していきたいと思っています。<br><br>
+    気軽に使える便利ツールを増やしていくので、よかったらチェックしていってください。
   </p>
 </details>
+
 <details>
-  <summary><h2>Vtuberとしてのプロフィール</h2></summary>
+  <summary>Vtuberとしてのプロフィール</summary>
   <p>
-あーしは、バ美肉Vtuberっぽいやつです。<br>
-仲良くしてほしいわね。<br><br>
-
-あーしのセクシャリティ的な説明だけど<br>
-ジェンダーフルイドのアンドロセクシュアルだよ。<br>
-男の子が恋愛対象です。<br>
-性自認はこだわりはなくて、恋愛対象に合わせるタイプです。<br><br>
-
-双極性障害、ADHD、手帳3級<br>
-現在療養中だけど回復して働きたいよぅー
+    あーしは、バ美肉Vtuberっぽいやつです。<br>
+    ゲーム・雑談・検証系など、気楽に見られる配信や動画をやっています。<br><br>
+    ジェンダーフルイドのアンドロセクシュアルです。<br>
+    男の子が恋愛対象です。<br>
+    性自認はこだわりはなくて、恋愛対象に合わせるタイプです。<br><br>
+    双極性障害、ADHD、手帳3級。<br>
+    現在療養中だけど、回復して働きたいよぅー。<br><br>
+    気に入ったら、YouTubeのチャンネル登録やXのフォローをしてくれるとうれしいですわ。
   </p>
 </details>
+
 <details>
-<summary><h2>AIに関する利用方針について</h2></summary>
-<p>
-コンテンツには全般的にAIを利用していることを公言しておきます。<br>
-他の人の絵を機械学習させることは一切しません。<br>
-元々企業で働いていた見習い技術者だったので、ご安心を。（というかみんながAIAI言う前から機械学習については認知してry<br>
-</p>
+  <summary>AIに関する利用方針</summary>
+  <p>
+    コンテンツ制作には全般的にAIを利用しています。<br>
+    いわゆるロボットの力も借りながら、動画・文章・ソフト制作を進めています。<br><br>
+    ただし、他の人の絵を個別に機械学習させることは一切しません。<br>
+    既存のAIツールを、便利な技術として楽しく安全に使っていく方針です。<br><br>
+    元々、企業で働いていた見習い技術者だったので、ご安心を。<br>
+    というか、みんながAIAI言う前から機械学習については認知してry
+  </p>
 </details>
+
 <details>
-<summary><h2>配信方針</h2></summary>
-<p>
-静かに楽しんでくれる方（いわゆるロム勢）をとても大事にしています。<br>
-コメントについては「配信や動画としての空気を壊さないもの」を前提としています。<br><br>
-配信はそのまま動画素材として使うことも多いため、<br>
-コメントの内容によっては迷わずブロック対応を行います。<br><br>
-基準としてはシンプルで、<br>
-「見ていて気持ちよくない」「空気を悪くする」「ログを荒らす」「面白くない」といったものが対象です。<br><br>
-継続して来てくれている方や、ゲーム内で関わりがあった場合でも、<br>
-配信の空気を優先して気にせず対応することがあります。<br><br>
-配信はあくまで「楽しい空間」を作るためのものなので、<br>
-その点だけご理解いただけるとうれしいですが<br>理解してくれてなくてもこちらでしっかり対応するので問題ございません。
-</p>
+  <summary>配信方針</summary>
+  <p>
+    静かに楽しんでくれる方、いわゆるロム勢をとても大事にしています。<br>
+    コメントについては「配信や動画としての空気を壊さないもの」を前提としています。<br><br>
+    配信はそのまま動画素材として使うことも多いため、コメントの内容によっては迷わずブロック対応を行います。<br><br>
+    基準としてはシンプルで、<br>
+    「見ていて気持ちよくない」「空気を悪くする」「ログを荒らす」「面白くない」といったものが対象です。<br><br>
+    継続して来てくれている方や、ゲーム内で関わりがあった場合でも、配信の空気を優先して対応することがあります。<br><br>
+    配信はあくまで「楽しい空間」を作るためのものなので、のんびり見たい方にはかなり向いていると思います。
+  </p>
 </details>
+
 <details>
-  <summary><h2>SNSの方針</h2></summary>
-<p>
-SNSにあんまりきたいしてないの。<br>
-てきとうにフォローしてフォロー返ってきたっぽい人の中から仲良くできそうな人と絡んでるわ。<br>
-なんか最近アルゴリズムへんなかんじ！！！ぷんぷん！<br>
-</p>
+  <summary>SNSについて</summary>
+  <p>
+    Xはわりと気楽に運用しています。<br>
+    てきとうにフォローして、フォロー返ってきたっぽい人の中から仲良くできそうな人と絡んでいます。<br><br>
+    更新通知やちょっとした雑談もあるので、よかったらフォローしてね。<br>
+    なんか最近アルゴリズムへんなかんじ！！！ぷんぷん！
+  </p>
 </details>
+
 </div>
-  
+
 <div class="card">
 <h2>🔽 ソフト</h2>
 
 <div class="software">
-<b>MP4無劣化分割ツール</b><br>
-長い動画を無劣化でサクッと分割できます。<br>
-<a class="btn" href="https://github.com/IizunaOjou/izMp4LosslessCutter/releases/tag/v1.0.0">Download</a>
+  <b>MP4無劣化分割ツール</b><br>
+  長い動画を無劣化でサクッと分割できます。YouTubeアーカイブや長時間録画の整理に便利です。<br>
+  <a class="btn" href="https://github.com/IizunaOjou/izMp4LosslessCutter/releases/tag/v1.0.0">Download</a>
 </div>
 
 <div class="software">
-<b>izAutoExo</b><br>
-音声認識で字幕 → AviUtl EXOを書き出します。<br>
-<a class="btn" href="https://github.com/IizunaOjou/izAutoExo/releases/tag/v1.0.0">Download</a>
+  <b>izAutoExo</b><br>
+  ローカルCPU/GPUの音声認識で字幕を作り、AviUtl拡張編集用EXOを書き出します。<br>
+  <a class="btn" href="https://github.com/IizunaOjou/izAutoExo/releases/tag/v1.0.0">Download</a>
 </div>
 
 </div>
@@ -353,25 +392,23 @@ SNSにあんまりきたいしてないの。<br>
 
 <div class="video-grid">
 
-  <!-- 長尺動画 -->
   <div class="video-card">
     <a href="https://www.youtube.com/watch?v=9o9aKfgt8A0&list=PLQbtZCFWXKKsvUfkjd8xyjyQOTPPW7PKU">
-      <img src="https://img.youtube.com/vi/9o9aKfgt8A0/maxresdefault.jpg">
+      <img src="https://img.youtube.com/vi/9o9aKfgt8A0/maxresdefault.jpg" alt="NTEプレイ動画シリーズ">
       <p>NTEプレイ動画シリーズ</p>
     </a>
   </div>
 
-  <!-- Shorts -->
   <div class="video-card">
     <a href="https://www.youtube.com/shorts/qx7Q4vo1uZU">
-      <img src="https://img.youtube.com/vi/qx7Q4vo1uZU/maxresdefault.jpg">
+      <img src="https://img.youtube.com/vi/qx7Q4vo1uZU/maxresdefault.jpg" alt="謎のショート動画">
       <p>謎のショート動画</p>
     </a>
   </div>
 
   <div class="video-card">
     <a href="https://www.youtube.com/shorts/JRROjBAa6z0">
-      <img src="https://img.youtube.com/vi/JRROjBAa6z0/maxresdefault.jpg">
+      <img src="https://img.youtube.com/vi/JRROjBAa6z0/maxresdefault.jpg" alt="ハートピアスローライフ ショート動画">
       <p>ハートピアスローライフ</p>
     </a>
   </div>
