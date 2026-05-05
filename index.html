@@ -7,66 +7,172 @@
 <title>いいずなお嬢様の研究所</title>
 
 <style>
+:root {
+  --bg1: #160f24;
+  --bg2: #2b1740;
+  --card: rgba(255, 255, 255, 0.08);
+  --border: rgba(255, 255, 255, 0.18);
+  --text: #f7f1ff;
+  --muted: #d8c9ee;
+  --accent: #d8a7ff;
+  --accent2: #7dd3fc;
+}
+
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
-  font-family: "Segoe UI", "Hiragino Sans", sans-serif;
-  background: linear-gradient(135deg, #1a1a1a, #2b2b3a);
-  color: #eee;
+  font-family: "Segoe UI", "Hiragino Sans", "Yu Gothic", sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at 15% 10%, rgba(216,167,255,0.35), transparent 28%),
+    radial-gradient(circle at 85% 20%, rgba(125,211,252,0.25), transparent 30%),
+    linear-gradient(135deg, var(--bg1), var(--bg2));
+  min-height: 100vh;
 }
 
-/* 中央コンテナ */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 32px 32px;
+  pointer-events: none;
+}
+
 .container {
-  max-width: 900px;
+  max-width: 980px;
   margin: auto;
-  padding: 40px 20px;
+  padding: 48px 20px;
+  position: relative;
 }
 
-/* タイトル */
-h1 {
-  font-size: 2.5em;
+.hero {
   text-align: center;
-  margin-bottom: 20px;
+  padding: 36px 20px 28px;
 }
 
-/* カード風 */
+.profile-icon {
+  width: 148px;
+  height: 148px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid rgba(255,255,255,0.75);
+  box-shadow:
+    0 0 0 8px rgba(216,167,255,0.18),
+    0 18px 50px rgba(0,0,0,0.35);
+  background: rgba(255,255,255,0.15);
+}
+
+h1 {
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  margin: 22px 0 8px;
+  letter-spacing: 0.04em;
+  text-shadow: 0 0 24px rgba(216,167,255,0.45);
+}
+
+.catch {
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
 .card {
-  background: rgba(255,255,255,0.05);
-  border-radius: 16px;
-  padding: 20px;
-  margin-bottom: 20px;
-  backdrop-filter: blur(10px);
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 24px;
+  margin-bottom: 22px;
+  backdrop-filter: blur(14px);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.25);
 }
 
-/* リンク */
+.card h2 {
+  margin-top: 0;
+  border-left: 5px solid var(--accent);
+  padding-left: 12px;
+}
+
+p {
+  line-height: 1.9;
+}
+
+.software {
+  padding: 18px;
+  margin-top: 14px;
+  border-radius: 18px;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.12);
+}
+
+.software b {
+  font-size: 1.15rem;
+}
+
 a {
-  color: #7dd3fc;
+  color: var(--accent2);
   text-decoration: none;
 }
+
 a:hover {
   text-decoration: underline;
 }
 
-/* ボタン風 */
 .btn {
   display: inline-block;
-  padding: 8px 14px;
-  margin-top: 8px;
-  border-radius: 8px;
-  background: #3b82f6;
-  color: white;
-  font-size: 0.9em;
+  margin-top: 12px;
+  padding: 10px 18px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #d8a7ff, #7dd3fc);
+  color: #1b1028;
+  font-weight: bold;
+  box-shadow: 0 8px 22px rgba(125,211,252,0.25);
 }
 
-/* ソフトリスト */
-.software {
-  margin-bottom: 15px;
+.btn:hover {
+  text-decoration: none;
+  transform: translateY(-1px);
 }
 
-/* フッター */
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.link-btn {
+  display: inline-block;
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.09);
+  border: 1px solid rgba(255,255,255,0.18);
+}
+
 .footer {
   text-align: center;
-  opacity: 0.7;
-  margin-top: 30px;
+  color: var(--muted);
+  opacity: 0.9;
+  margin-top: 34px;
+  line-height: 1.8;
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 28px 14px;
+  }
+
+  .card {
+    padding: 18px;
+    border-radius: 18px;
+  }
+
+  .profile-icon {
+    width: 124px;
+    height: 124px;
+  }
 }
 </style>
 </head>
@@ -75,23 +181,29 @@ a:hover {
 
 <div class="container">
 
-<h1>いいずなお嬢様の研究所</h1>
+<header class="hero">
+  <img class="profile-icon" src="icon.png" alt="いいずなお嬢様のプロフィールアイコン">
+  <h1>いいずなお嬢様の研究所</h1>
+  <div class="catch">OSS / Tools / VTuber / 配信まわりの便利なもの</div>
+</header>
 
 <div class="card">
+<h2>プロフィール</h2>
 <p>
 開発者としてのプロフィール<br>
-OSSが大好きなので、なるべくGPL3ライセンスでソフトを作って貢献していきたいと思います。<br>
+OSSが大好きなので、なるべくGPL-3.0系ライセンスでソフトを作って貢献していきたいと思います。<br><br>
+
 Vtuberとしてのプロフィール<br>
 あーしは、バ美肉Vtuberっぽいやつです。<br>
-仲良くしてほしいわね。<br>
-<br>
+仲良くしてほしいわね。<br><br>
+
 あーしのセクシャリティ的な説明だけど<br>
 ジェンダーフルイドのアンドロセクシュアルだよ。<br>
 男の子が恋愛対象です。<br>
-性自認はこだわりはなくて、恋愛対象に合わせるタイプです。<br>
-<br>
+性自認はこだわりはなくて、恋愛対象に合わせるタイプです。<br><br>
+
 双極性障害、ADHD、手帳3級<br>
-現在療養中だけど回復して働きたいよぅー<br>
+現在療養中だけど回復して働きたいよぅー
 </p>
 </div>
 
@@ -106,7 +218,7 @@ Vtuberとしてのプロフィール<br>
 
 <div class="software">
 <b>izAutoExo</b><br>
-音声認識で字幕→AviUtl EXOを書き出します。<br>
+音声認識で字幕 → AviUtl EXOを書き出します。<br>
 <a class="btn" href="https://github.com/IizunaOjou/izAutoExo/releases/tag/v1.0.0">Download</a>
 </div>
 
@@ -114,11 +226,11 @@ Vtuberとしてのプロフィール<br>
 
 <div class="card">
 <h2>🔗 Links</h2>
-<p>
-<a href="https://x.com/iizuma_inja">X</a> /
-<a href="https://t.co/96ntACMx0K">YouTube</a> /
-<a href="https://www.twitch.tv/iizuna_inja">Twitch</a>
-</p>
+<div class="links">
+  <a class="link-btn" href="https://x.com/iizuma_inja">X</a>
+  <a class="link-btn" href="https://t.co/96ntACMx0K">YouTube</a>
+  <a class="link-btn" href="https://www.twitch.tv/iizuna_inja">Twitch</a>
+</div>
 </div>
 
 <div class="footer">
