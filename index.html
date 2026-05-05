@@ -300,6 +300,46 @@ details p {
     padding-top: 24px;
   }
 }
+.twitch-layout {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.twitch-video {
+  flex: 2;
+  position: relative;
+  padding-top: 56.25%;
+}
+
+.twitch-video iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+}
+
+.twitch-chat {
+  flex: 1;
+  min-width: 300px;
+  height: 400px;
+}
+
+.twitch-chat iframe {
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+}
+@media (max-width: 700px) {
+  .twitch-layout {
+    flex-direction: column;
+  }
+
+  .twitch-chat {
+    height: 300px;
+  }
+}
 </style>
 </head>
 
@@ -324,14 +364,29 @@ details p {
 
 <div class="card">
 <h2>🔴 Live / Twitch</h2>
-<div class="twitch-wrap">
-  <iframe
-    src="https://player.twitch.tv/?channel=iizuna_inja&parent=iizunaojou.github.io"
-    allowfullscreen>
-  </iframe>
+
+<div class="twitch-layout">
+
+  <!-- 配信画面 -->
+  <div class="twitch-video">
+    <iframe
+      src="https://player.twitch.tv/?channel=iizuna_inja&parent=iizunaojou.github.io"
+      allowfullscreen>
+    </iframe>
+  </div>
+
+  <!-- チャット -->
+  <div class="twitch-chat">
+    <iframe
+      src="https://www.twitch.tv/embed/iizuna_inja/chat?parent=iizunaojou.github.io">
+    </iframe>
+  </div>
+
 </div>
+
 <p>
-  配信中ならここで見れます。オフラインでも、よかったらTwitchフォローしてね。
+配信中はここで動画とコメントが見れます。<br>
+気に入ったらフォローしてね。
 </p>
 </div>
 
