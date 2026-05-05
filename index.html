@@ -1,31 +1,124 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>いいずなお嬢様の研究所</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: "Segoe UI", "Hiragino Sans", sans-serif;
+  background: linear-gradient(135deg, #1a1a1a, #2b2b3a);
+  color: #eee;
+}
+
+/* 中央コンテナ */
+.container {
+  max-width: 900px;
+  margin: auto;
+  padding: 40px 20px;
+}
+
+/* タイトル */
+h1 {
+  font-size: 2.5em;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* カード風 */
+.card {
+  background: rgba(255,255,255,0.05);
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 20px;
+  backdrop-filter: blur(10px);
+}
+
+/* リンク */
+a {
+  color: #7dd3fc;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/* ボタン風 */
+.btn {
+  display: inline-block;
+  padding: 8px 14px;
+  margin-top: 8px;
+  border-radius: 8px;
+  background: #3b82f6;
+  color: white;
+  font-size: 0.9em;
+}
+
+/* ソフトリスト */
+.software {
+  margin-bottom: 15px;
+}
+
+/* フッター */
+.footer {
+  text-align: center;
+  opacity: 0.7;
+  margin-top: 30px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
 <h1>いいずなお嬢様の研究所</h1>
 
+<div class="card">
 <p>
-OSSが大好き。<br>
-できるだけOSSでソフトを作って貢献したいと思ってます。<br>
-あーしがいつでも一番正しいでございます。できればXフォローしてYoutubeチャンネル登録してくれーー。
-</p>
+あーしは、OSSが大好きです。<br>
+できるだけOSSでソフトを作って貢献していきたいと思うます。<br><br>
 
+あーしがいつでも一番正しいでございます（たぶん）。<br>
+よかったらフォロー＆チャンネル登録よろしく。
+</p>
+</div>
+
+<div class="card">
 <h2>🔽 ソフト</h2>
-<ul>
-  <li>
-    <a href="https://github.com/IizunaOjou/izMp4LosslessCutter/releases/tag/v1.0.0">
-      MP4無劣化分割ツール。めっちゃシンプル。
-    </a>
-    <a href="https://github.com/IizunaOjou/izAutoExo/releases/tag/v1.0.0">
-      ローカルCPU/GPUによる音声認識で、MP4動画に含まれる声から字幕を起こして、AviUtlの拡張編集用のEXOファイル書き出すツール
-    </a>
-  </li>
-</ul>
 
+<div class="software">
+<b>MP4無劣化分割ツール</b><br>
+長い動画を無劣化でサクッと分割できます。<br>
+<a class="btn" href="https://github.com/IizunaOjou/izMp4LosslessCutter/releases/tag/v1.0.0">Download</a>
+</div>
+
+<div class="software">
+<b>izAutoExo</b><br>
+音声認識で字幕→AviUtl EXOを書き出します。<br>
+<a class="btn" href="https://github.com/IizunaOjou/izAutoExo/releases/tag/v1.0.0">Download</a>
+</div>
+
+</div>
+
+<div class="card">
 <h2>🔗 Links</h2>
-<ul>
-  <li><a href="https://x.com/iizuma_inja">X（Twitter）</a></li>
-  <li><a href="https://t.co/96ntACMx0K">YouTube</a></li>
-  <li><a href="https://www.twitch.tv/iizuna_inja">Twitch</a></li>
-</ul>
-
 <p>
-問い合わせはGitHubが一番助かるけど、TwitterでもOK。<br>
-Vtuberもやってるのでびっくりしないでね。
+<a href="https://x.com/iizuma_inja">X</a> /
+<a href="https://t.co/96ntACMx0K">YouTube</a> /
+<a href="https://www.twitch.tv/iizuna_inja">Twitch</a>
 </p>
+</div>
+
+<div class="footer">
+お問い合わせはGitHub or Xでどうぞ。<br>
+Vtuberもやってるのでびっくりしないでね。
+</div>
+
+</div>
+
+</body>
+</html>
